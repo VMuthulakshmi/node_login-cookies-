@@ -14,7 +14,7 @@ router.use(bodyParser.urlencoded({ extended: false })); // next class
 router.route('/')
 .post((req,res) => {
    console.log(req.signedCookies)
-    if(!req.signedCookies){
+    if(req.signedCookies.user==req.body.username){
         console.log("inside if condition")
         let person = new User({ // creating a new object(row) for the user model with the data we passed
             username : req.body.username,
